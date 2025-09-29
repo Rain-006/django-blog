@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Блог</title>
-</head>
-<body>
-    <h1>Список постов</h1>
-    <ul>
-        {% for post in posts %}
-            <li>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content }}</p>
-                <small>Создано: {{ post.created_at }}</small>
-            </li>
-        {% empty %}
-            <li>Постов пока нет</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block title %}Список постов{% endblock %}
+
+{% block content %}
+   {% for post in posts %}
+        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p>{{post.text}}</p>
+    {% empty %}
+        <p>Пока постов нет</p>
+   {% endfor %}
+
+{% endblock %}

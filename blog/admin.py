@@ -1,9 +1,5 @@
 from django.contrib import admin
-from .models import Post
-from django.db import models
-from django.contrib.auth.admin import UserAdmin
+from .models import Post, Category
 
-
-admin.site.register(Post)   
-class GroupIsAdminClass(UserAdmin):
-    list_display = ["title", "content", "created_at"]
+admin.site.register(Post)
+admin.site.register(Category)
