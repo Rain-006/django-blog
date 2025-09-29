@@ -41,6 +41,15 @@ def post_update(request, pk):
         return render(request, 'blog/post_form.html', {'form': form})
 
 
+#Удаление поста
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":  # подтверждаем удаление
+        post.delete()
+        return redirect("post_list")  # имя твоего URL со списком постов
+    return render(request, "blog/post_confirm_delete.html", {"post": post})
+
+
 # C_R_UD
 
 # Post.objects.all()
