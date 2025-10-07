@@ -1,3 +1,6 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
 <h1>Категории</h1>
 
 <a href="{% url 'category_create' %}">Добавить категорию</a>
@@ -13,3 +16,4 @@
     <li>Категорий нет</li>
   {% endfor %}
 </ul>
+{% endblock %}
