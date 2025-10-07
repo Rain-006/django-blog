@@ -1,3 +1,6 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
 <h1>Удалить категорию "{{ category.name }}"?</h1>
 
 <form method="post">
@@ -6,3 +9,4 @@
 </form>
 
 <a href="{% url 'category_list' %}">Отмена</a>
+{% endblock %}
